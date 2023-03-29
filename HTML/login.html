@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Log-In</title>
+
+    <link rel="stylesheet" href="../CSS/login.css">
+    <script src="https://kit.fontawesome.com/57edaae710.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+
+</head>
+<body>
+    <div class="beforePage1">
+
+    
+        <div class="page1">
+            <div class="rond"></div>
+            <div class="top">
+            <div class="vide"></div>
+           
+            <p class="title"> <a href="welcome.html"><i class="fa-solid fa-arrow-left"></i></a>NutriScan</p>
+            <p class="paragrapheSecond">Connectez vous pour accéder à toutes les fonctionnalités</p>
+       
+        </div>
+
+        <div class="bottom">
+
+            
+                
+
+            <div class="login-box">
+                <h2>Login</h2>
+                <form>
+
+                  <div>
+                    <div class="user-box">
+                      <input type="text" name="" required="">
+                      <label>Identifiant</label>
+                    </div>
+                    
+                    <div class="user-box">
+                      <div class="inputPassword">
+                        <input id="form2" type="password" name="" required="">
+                        <i onclick="toggleVisibility();" id="icon" class="fa-solid fa-eye"></i>
+                        <label>Mot de passe</label>
+                      </div>
+
+                      
+                      
+                      <p id="forgot_account">Mot de passe oublié ?</p>
+                    </div>
+                    
+                    
+                  </div>
+                  <div class="btnListe">
+                    <a href="scanpage.html">Connexion</a>
+
+                    <div class="txtCreate">
+
+                      <p>Vous n'avez pas de compte ? </p>
+                      <a class="signup" href="signup.html"><p>Créez un compte</p></a>                 
+                    </div>
+
+                  </div>
+
+              </form>
+          </div>
+
+      </div>
+
+            
+    </div>
+
+    
+    <script>
+      function toggleVisibility() {
+        let i = document.getElementById("icon")
+        let input = document.getElementById("form2")
+        if (i.classList == "fa-solid fa-eye") {
+          i.classList = "fa-solid fa-eye-slash"
+          input.type = "text"
+        } else {
+          i.classList = "fa-solid fa-eye"
+          input.type = "password"
+        }
+
+        
+        
+
+      }
+    </script>
+
+</body>
+</html>

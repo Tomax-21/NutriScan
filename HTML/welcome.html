@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="../CSS/welcome.css" />
+    <script
+      src="https://kit.fontawesome.com/57edaae710.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+
+    <script
+      src="https://unpkg.com/html5-qrcode"
+      type="text/javascript"
+    ></script>
+  </head>
+  <body>
+    <div class="beforePage1">
+      <div class="page1">
+        <div class="rond"></div>
+        <div class="top">
+          <div class="vide"></div>
+
+          <p class="title">NutriScan</p>
+
+          <div class="anim">
+            <span class="animation-header">
+              <span class="mot1 title1"> Bienvenue !<br /> </span>
+
+              <span class="mot2 title1"> Welcome !<br /> </span>
+
+              <span class="mot3 title1"> Bienvenido !<br /> </span>
+
+              <span class="mot4 title1"> Benvenuto !<br /> </span>
+
+              <span class="mot5 title1"> 欢迎 !<br /> </span>
+
+              <span class="mot6 title1"> ようこそ !<br /> </span>
+
+              <span class="mot7 title1"> Willkommen !<br /> </span>
+            </span>
+          </div>
+
+          <a href="login.html" class="loginBtn">Login</a>
+        </div>
+
+        <div class="bottom">
+          <p class="titleSecond">Scannez votre premier produit</p>
+          <p class="paragrapheSecond">
+            Connectez vous pour accéder à toutes les fonctionnalités
+          </p>
+
+          <div class="scanDiv">
+            <main>
+              <div id="reader"></div>
+              <div id="result"></div>
+            </main>
+
+            <div class="scanBtn" onclick="showInfo()">
+              Scan<i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer"></div>
+      </div>
+    </div>
+
+    <div class="infoScan" id="menuInfo">
+      <div class="ligneIntro">
+        <div class="leave" onclick="hideInfo()">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="barre"></div>
+        <div class="like"></div>
+      </div>
+
+      <div class="ligne1 ligne">
+        <div class="colonne1">
+          <div class="imagePresentation">
+            <img
+              src="https://images.openfoodfacts.org/images/products/762/221/028/8257/front_fr.68.400.jpg"
+              alt="image"
+            />
+          </div>
+        </div>
+        <div class="colonne2">
+          <div>
+            <div class="nomProduit">Nom</div>
+            <div class="marque">Marque</div>
+          </div>
+
+          <div class="quantite">100g / 150 kcal</div>
+          <div class="paysOrigine">France</div>
+        </div>
+      </div>
+
+      <div class="ligne2 ligne">
+        <div class="colonne3">
+          <div class="titleC3">Classification du produit</div>
+
+          <div class="ligneC3">
+            <div class="nutriscore">Nutri-Score</div>
+            <div class="ecoscore">Eco-Score</div>
+            <div class="novascore">Groupe Nova</div>
+          </div>
+        </div>
+      </div>
+      <a href="login.html"
+        ><p class="moreInfo">
+          <i class="fa-solid fa-plus"></i>Afficher plus d'informations
+        </p></a
+      >
+
+      <!--<div class="ligne3 ligne">
+            <div class="ingredients"></div>
+        </div>
+
+        <div class="ligne4 ligne">
+            <div class="additifs"></div>
+        </div>
+        Mettre moins mais ajouter un btn voir +-->
+    </div>
+
+    <script>
+      function showInfo() {
+        document.getElementById("menuInfo").classList = "infoScan";
+        document.getElementById("menuInfo").style.display = "block";
+      }
+      function hideInfo() {
+        document.getElementById("menuInfo").classList = "infoScan hideinfo";
+        setTimeout(function () {
+          document.getElementById("menuInfo").style.display = "none";
+        }, 650);
+      }
+      /*
+        https://github.com/mebjas/html5-qrcode
+        const html5QrCode = new Html5Qrcode("reader");
+        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+            handle success 
+        };
+        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+        // If you want to prefer front camera
+        html5QrCode.start({ facingMode: "user" }, config, qrCodeSuccessCallback);
+
+        // If you want to prefer back camera
+        html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+
+        // Select front camera or fail with `OverconstrainedError`.
+        html5QrCode.start({ facingMode: { exact: "user"} }, config, qrCodeSuccessCallback);
+
+        // Select back camera or fail with `OverconstrainedError`.
+        html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
+        */
+
+      const scanner = new Html5QrcodeScanner(
+        "reader",
+        {
+          qrbox: {
+            width: 200,
+            height: 100,
+          },
+          fps: 10,
+        },
+        false
+      );
+
+      scanner.render(succes, error);
+
+      function succes(result) {
+        console.log(succes);
+        showInfo();
+        //document.getElementById("result").innerHTML = `<h2>Succes</h2><p>${result}</p>`;
+        //scanner.clear();
+        //document.getElementById('reader').remove();
+      }
+      function error(err) {
+        //console.error(err);
+      }
+    </script>
+  </body>
+</html>
